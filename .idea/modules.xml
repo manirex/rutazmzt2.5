@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="rutazmzt/app" />
       <module fileurl="file://$PROJECT_DIR$/rutazmzt.iml" filepath="$PROJECT_DIR$/rutazmzt.iml" group="rutazmzt" />
+      <module fileurl="file://$PROJECT_DIR$/rutazmzt2.5.iml" filepath="$PROJECT_DIR$/rutazmzt2.5.iml" group="rutazmzt2.5" />
+      <module fileurl="file://$PROJECT_DIR$/app/rutazmzt2.5-app.iml" filepath="$PROJECT_DIR$/app/rutazmzt2.5-app.iml" group="rutazmzt2.5/app" />
     </modules>
   </component>
 </project>

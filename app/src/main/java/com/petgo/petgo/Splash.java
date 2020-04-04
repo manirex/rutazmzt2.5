@@ -26,10 +26,6 @@ public class Splash extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
-        sqlite = new SQLite(this);
-        ok_sesion = false;
-
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -38,6 +34,12 @@ public class Splash extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
                         | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
                         | View.SYSTEM_UI_FLAG_IMMERSIVE);
+
+        fin();
+
+       /*
+        sqlite = new SQLite(this);
+        ok_sesion = false;
 
         sql = "CREATE TABLE IF NOT EXISTS interno_sesion (";
         sql += "idcliente INTEGER,";
@@ -68,6 +70,10 @@ public class Splash extends AppCompatActivity {
         } else{
             fin();
         }
+
+
+        */
+
 
 
 
@@ -117,10 +123,13 @@ public void fin() {
                                 // que hacer despues de 5000 milisegundos
 
 
-                                if (ok_sesion)
-                                    startActivity(new Intent(Splash.this, MainActivity.class));
-                                else startActivity(new Intent(Splash.this, welcome.class));
-                                System.out.println("");
+                            /*  if (ok_sesion)
+                                   startActivity(new Intent(Splash.this, MainActivity.class));
+                               else startActivity(new Intent(Splash.this, welcome.class));
+                               System.out.println("");
+                               Splash.this.finish();*/
+
+                                startActivity(new Intent(Splash.this, MainActivity.class));
                                 Splash.this.finish();
 
                             }
