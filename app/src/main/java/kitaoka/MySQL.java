@@ -14,10 +14,10 @@ import java.sql.ResultSet;
  */
 
 public class MySQL {
-    static String host      = "www.kitaokatechdb.com";
-    static String baseDatos = "especial_petgo";
-    static String usuario   = "especial_petgo";
-    static String password  = "especial_petgo123";
+    static String host      = "sql105.tonohost.com";
+    static String baseDatos = "ottos_25460145_Rutas_Mazatlan";
+    static String usuario   = "ottos_25460145";
+    static String password  = "Vmlc180495Y";
     static String cadCon	= "jdbc:mysql://"+host+"/"+baseDatos;
 
     public static Connection con;
