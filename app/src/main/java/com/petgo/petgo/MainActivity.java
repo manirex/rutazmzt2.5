@@ -392,7 +392,7 @@ carros = new ArrayList<>();*/
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
-        markerOptions.title("From Position"); //de aqui se puede obtener la posision from (de) ya con esto se puede realizar un trazado de las dos ubicaicones
+        markerOptions.title("From Position"); //de aqui se puede obtener la posision from (de) ya con esto se puede realizar un trazado de las dos ubicaicones a futuro
        // icon = BitmapDescriptorFactory.fromResource(R.drawable.icon_from);
        // markerOptions.icon(icon);
         origen = mMap.addMarker(markerOptions);
