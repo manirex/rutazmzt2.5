@@ -99,7 +99,7 @@ public class Splash extends AppCompatActivity {
                 Splash.this.finish();
             }
         }, 2000);
-
+ 
     }*/
 
 
