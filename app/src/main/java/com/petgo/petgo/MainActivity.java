@@ -1,48 +1,68 @@
 package com.petgo.petgo;
 
 import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.SQLException;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlacePicker;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polyline;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 import kitaoka.Dialogos;
+import kitaoka.Global;
+import kitaoka.MySQL;
 
 
 public class MainActivity extends AppCompatActivity
-        implements OnMapReadyCallback,
+        implements NavigationView.OnNavigationItemSelectedListener,OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener {
@@ -57,8 +77,8 @@ public class MainActivity extends AppCompatActivity
     Marker origen;
     ArrayList<Marker> carros;
     private static final String DEBUG_TAG = "NetworkStatusExample";
-    LocationRequest mLocationRequest;
 
+    LocationRequest mLocationRequest;
     Polyline line;
     Button boton_menu;
     Button boton_start_local;
@@ -76,7 +96,7 @@ public class MainActivity extends AppCompatActivity
 
     private String sql;
     private java.sql.ResultSet rs;
-   private  boolean ayudad;
+    private  boolean ayudad;
     View decorView;
     DrawerLayout drawer;
     private String lugarGPS;
@@ -93,36 +113,34 @@ public class MainActivity extends AppCompatActivity
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // OCULTAR NAVEGADOR
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        final NavigationView navegador_menu = (NavigationView) findViewById(R.id.nav_view);
+        navegador_menu.setNavigationItemSelectedListener(this);
+        View headerView = navegador_menu.getHeaderView(0);
+        View navHeader = navegador_menu.getHeaderView(0);
+        /////Mostrar el nombre del usuario
+      //  nombre = navHeader.findViewById(R.id.textView);  /// send name*/
+       // nombre.setText(Global.usuario);
+      //  correo = navHeader.findViewById(R.id.texCorreo);  /// send email*/
+     //   correo.setText(Global.correo);
         lugarGPS = "";
 
-
-		//final NavigationView navegador_menu = (NavigationView) findViewById(R.id.nav_view);
-		//navegador_menu.setNavigationItemSelectedListener(this);
-       // View headerView = navegador_menu.getHeaderView(0);
-       // View navHeader = navegador_menu.getHeaderView(0);
-        /////Mostrar el nombre del usuario
-
-        /*
-        nombre = navHeader.findViewById(R.id.textView);  /// send name
-        nombre.setText(Global.usuario);
-        correo = navHeader.findViewById(R.id.texCorreo);  /// send email
-        correo.setText(Global.correo);*/
+        Global.ListMascotas.clear();
 
 
-      //  Global.ListMascotas.clear();
-
-/*
         menu_text4 = (TextView) headerView.findViewById(R.id.menu_text4);
         menu_text4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View viewIn) {
+                /* Toast.makeText(getApplicationContext(), "En proceso.....", Toast.LENGTH_SHORT).show();*/
 
-x
             }
         });
+
 
         boton_menu = (Button) findViewById(R.id.boton_menu);
         boton_menu.setOnClickListener(new View.OnClickListener() {
@@ -170,17 +188,17 @@ x
             }
         });
 
-        if (MySQL.Conectar()) {
+       /* if (MySQL.Conectar()) {
 
 
         } else {
-            // falla de conexion
+            // falla de conexion de la base de datos
             MySQL.cerrarConexion();
-            Dialogos.mensaje(MainActivity.this, "There is a connection problem with your wifi or your data plan. Verify that your device has internet connection");
+            Dialogos.mensaje(MainActivity.this, "There is a connection " +
+                    "problem with your wifi or your data plan. Verify that your device has internet connection");
         }
+carros = new ArrayList<>();*/
 
-        carros = new ArrayList<>();
-*/
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkLocationPermission();
         }
@@ -246,13 +264,12 @@ x
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
-
-/*
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == PLACE_PICKER_REQUEST && resultCode == RESULT_OK) {
             Place place = PlacePicker.getPlace(this, data);
@@ -260,7 +277,6 @@ x
                 Log.i(TAG, "No place selected");
                 return;
             }
-          //  Toast.makeText(getApplicationContext(), "ubicacion de la persona", Toast.LENGTH_SHORT).show();
 
             double latitude = place.getLatLng().latitude;
             double longitude = place.getLatLng().longitude;
@@ -270,9 +286,6 @@ x
         }
 
     }
-
-
- */
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -304,9 +317,9 @@ x
 
                 if(relativePixelSize < pixelSizeAtZoom0) //restrict the maximum size of the icon
                     relativePixelSize = pixelSizeAtZoom0;
-
-                //change the size of the icon
-             /*   for(int point = 0; point < carros.size(); point++) {
+/*
+                //change the size of the icon aqui se imprime la imagen del auto
+                for(int point = 0; point < carros.size(); point++) {
                     Marker car = carros.get(point);
                     car.setIcon(
                             BitmapDescriptorFactory.fromBitmap(resizeMapIcons("carrito", relativePixelSize, relativePixelSize))
@@ -379,9 +392,9 @@ x
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
-        markerOptions.title("POSICION ACTUAL");
-        //icon = BitmapDescriptorFactory.fromResource(R.drawable.icon_from);
-     //   markerOptions.icon(icon);
+        markerOptions.title("From Position"); //de aqui se puede obtener la posision from (de) ya con esto se puede realizar un trazado de las dos ubicaicones
+       // icon = BitmapDescriptorFactory.fromResource(R.drawable.icon_from);
+       // markerOptions.icon(icon);
         origen = mMap.addMarker(markerOptions);
 
 
@@ -448,8 +461,7 @@ x
                 } else {
 
                     // Permission denied, Disable the functionality that depends on this permission.
-                    Dialogos.mensaje(MainActivity.this, "Permiso del GPS DENEGADO");
-                    //como nota volver a preguntarle al usuario los permisos
+                    Dialogos.mensaje(MainActivity.this, "permission denied GPS");
                 }
                 return;
             }
@@ -468,8 +480,8 @@ x
 
     }
 */
-
-    /*public void refreshPlacesData() {
+/*
+    public void refreshPlacesData() {
         if (Global.origen != null) {
             Global.origen.remove();
         }
@@ -478,48 +490,48 @@ x
         try {
             addresses = gcd.getFromLocation(mLastLocation.getLatitude(), mLastLocation.getLongitude(), 1);
             if (addresses.size() > 0) {
-                 String locality = addresses.get(0).getLocality();
-                 String state = addresses.get(0).getAdminArea();
+                String locality = addresses.get(0).getLocality();
+                String state = addresses.get(0).getAdminArea();
 
-                 if(lugarGPS=="") {
-                     lugarGPS = locality + ", " + state;
-                     // aqui imprimeme que valor agarra el lugarGPS para saber que estamos recibiendo
-                     System.out.println("lugar afuera: " + lugarGPS);
-                     sql = "SELECT * FROM petgo_afiliados WHERE STATUS = 1 AND ciudad='" + lugarGPS + "' ";
-                     try {
-                         rs = MySQL.Query(sql);
-                     } catch (SQLException e) {
-                         MySQL.cerrarConexion();
-                         Dialogos.mensaje(MainActivity.this, "There is a connection problem with your wifi or your data plan. Verify that your device has internet connection");
-                     }
+                if(lugarGPS=="") {
+                    lugarGPS = locality + ", " + state;
+                    // aqui imprimeme que valor agarra el lugarGPS para saber que estamos recibiendo
+                    System.out.println("lugar afuera: " + lugarGPS);
+                    sql = "SELECT * FROM petgo_afiliados WHERE STATUS = 1 AND ciudad='" + lugarGPS + "' ";
+                    try {
+                        rs = MySQL.Query(sql);
+                    } catch (SQLException e) {
+                        MySQL.cerrarConexion();
+                        Dialogos.mensaje(MainActivity.this, "There is a connection problem with your wifi or your data plan. Verify that your device has internet connection");
+                    }
 
 
-                     try {
-                         rs.first();
-                         do {
-                             System.out.println("lugar adentro: " + lugarGPS);
-                             LatLng latLng1 = new LatLng(rs.getFloat("latitud"), rs.getFloat("longitud"));
-                             System.out.println(latLng1);
-                             float rotacion = rs.getFloat("rotacion");
-                             MarkerOptions markerOptions = new MarkerOptions();
-                             markerOptions.position(latLng1);
-                             markerOptions.title(rs.getString("Nombre"));
-                             markerOptions.icon(BitmapDescriptorFactory.fromBitmap(resizeMapIcons("carrito", 160, 160)));
-                             Marker car;
-                             car = mMap.addMarker(markerOptions);
-                             car.setRotation(rotacion);
-                             carros.add(car);
-                         }
-                         while (rs.next());
-                         MySQL.cerrarConexion();
+                    try {
+                        rs.first();
+                        do {
+                            System.out.println("lugar adentro: " + lugarGPS);
+                            LatLng latLng1 = new LatLng(rs.getFloat("latitud"), rs.getFloat("longitud"));
+                            System.out.println(latLng1);
+                            float rotacion = rs.getFloat("rotacion");
+                            MarkerOptions markerOptions = new MarkerOptions();
+                            markerOptions.position(latLng1);
+                            markerOptions.title(rs.getString("Nombre"));
+                            markerOptions.icon(BitmapDescriptorFactory.fromBitmap(resizeMapIcons("carrito", 160, 160)));
+                            Marker car;
+                            car = mMap.addMarker(markerOptions);
+                            car.setRotation(rotacion);
+                            carros.add(car);
+                        }
+                        while (rs.next());
+                        MySQL.cerrarConexion();
 
-                     } catch (java.sql.SQLException e) {
-                         Toast.makeText(getApplicationContext(), "En proceso.....", Toast.LENGTH_SHORT).show();
-                         //   Dialogos.mensaje(MainActivity.this, "No hay autos disponibles");
-                         e.printStackTrace();
+                    } catch (java.sql.SQLException e) {
+                        Toast.makeText(getApplicationContext(), "En proceso.....", Toast.LENGTH_SHORT).show();
+                        //   Dialogos.mensaje(MainActivity.this, "No hay autos disponibles");
+                        e.printStackTrace();
 
-                     }
-                 }
+                    }
+                }
 
 
             }
@@ -528,8 +540,7 @@ x
         }
 
     }
-    */
-
+*/
     @Override
     public void onConnected(@Nullable Bundle bundle) {
         mLocationRequest = new LocationRequest();
@@ -545,10 +556,10 @@ x
 
     }
 
-/*
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         return false;
-    }*/
+    }
 }
 
