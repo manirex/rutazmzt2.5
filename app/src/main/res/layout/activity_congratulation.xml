@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fafff8"
+    tools:context="com.petgo.petgo.congratulation">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:background="#32302f"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/congratulation_button1"
+                android:layout_width="17dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/boton_back" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_weight="1"
+                android:text="PetGo"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+            <FrameLayout
+                android:layout_width="32dp"
+                android:layout_height="match_parent">
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="Terms and conditions"
+            android:textColor="#3F3F3F"
+            android:textSize="25sp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="25dp">
+        </FrameLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="240dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="You can now request as many rides you need for your pets, just register your pets, set a destination and pick a vehicle!." />
+            </LinearLayout>
+        </ScrollView>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="15dp">
+
+        </FrameLayout>
+
+
+        <Button
+            android:id="@+id/congratulation_button2"
+            android:layout_width="210dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/boton_continue_on" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

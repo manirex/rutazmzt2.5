@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fafff8"
+    tools:context="com.petgo.petgo.formulario_nacional">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:background="#32302f"
+            android:layout_width="match_parent"
+            android:layout_height="35dp">
+
+            <Button
+                android:id="@+id/profile_button_regresar"
+                android:layout_width="15dp"
+                android:layout_height="20dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
+                android:background="@drawable/boton_back" />
+
+
+            <TextView
+                android:id="@+id/menu_bar_textView2"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/boton_menu"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1"
+                android:text="PetGo"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+       <!--     <Button
+                android:id="@+id/boton_menu"
+                android:layout_width="20dp"
+                android:layout_height="15dp"
+                android:layout_alignBottom="@+id/profile_button_regresar"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="11dp"
+                android:layout_marginRight="11dp"
+                android:background="@drawable/boton_menu" /> -->
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="16dp">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="295dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:text="Pet registration National Service"
+                    android:textColor="#3F3F3F"
+                    android:textSize="25sp" />
+
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1">
+
+                    <RadioButton
+                        android:id="@+id/radioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="Dog" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Cat" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/registro_textView1"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:text="Pet name"
+                    android:textColor="#3F3F3F"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/registro_editText1"
+                    android:layout_width="280dp"
+                    android:layout_height="43dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/edit_tipoa"
+                    android:ems="10"
+                    android:inputType="textEmailAddress"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/registro_textView5"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:text="Breed (optional)"
+                    android:textColor="#3F3F3F"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/registro_editText5"
+                    android:layout_width="280dp"
+                    android:layout_height="43dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/edit_tipoa"
+                    android:ems="10"
+                    android:inputType="phone"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/registro_textView6"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:text="Color"
+                    android:textColor="#3F3F3F"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/registro_editText6"
+                    android:layout_width="280dp"
+                    android:layout_height="43dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/edit_tipoa"
+                    android:ems="10"
+                    android:inputType="phone"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/registro_textView3"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:text="Weight (lbs aprox.)"
+                    android:textColor="#3F3F3F"
+                    android:textSize="16sp" />
+
+                <FrameLayout
+                    android:layout_width="280dp"
+                    android:layout_height="43dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="0dp">
+
+                    <EditText
+                        android:id="@+id/registro_editText3"
+                        android:layout_width="180dp"
+                        android:layout_height="43dp"
+                        android:background="@drawable/edit_tipob"
+                        android:ems="10"
+                        android:inputType="textPassword"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:textSize="14sp" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/registro_textView4"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:text="Age"
+                    android:textColor="#3F3F3F"
+                    android:textSize="16sp" />
+
+                <FrameLayout
+                    android:layout_width="280dp"
+                    android:layout_height="43dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="0dp">
+
+                    <EditText
+                        android:id="@+id/registro_editText4"
+                        android:layout_width="180dp"
+                        android:layout_height="43dp"
+                        android:background="@drawable/edit_tipob"
+                        android:ems="10"
+                        android:inputType="textPassword"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:textSize="14sp" />
+                </FrameLayout>
+
+                <TextView
+                android:id="@+id/registro_textView7"
+                android:layout_width="293dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="Pet description and personality (optional)"
+                android:textColor="#3F3F3F"
+                android:textSize="16sp" />
+
+
+                <EditText
+                    android:id="@+id/registro_editText7"
+                    android:layout_width="280dp"
+                    android:layout_height="115dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/edit_tipoc"
+                    android:ems="10"
+                    android:inputType="textMultiLine"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/registro_textView8"
+                    android:layout_width="293dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:text="Special needs e.g. dog muzzle, ramp, medication (optional)"
+                    android:textColor="#3F3F3F"
+                    android:textSize="16sp" />
+
+
+                <EditText
+                    android:id="@+id/registro_editText8"
+                    android:layout_width="280dp"
+                    android:layout_height="115dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/edit_tipoc"
+                    android:ems="10"
+                    android:inputType="textMultiLine"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:textSize="14sp" />
+
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"></FrameLayout>
+
+                <Button
+                    android:id="@+id/registro_button1"
+                    android:layout_width="210dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/boton_addpet" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"></FrameLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

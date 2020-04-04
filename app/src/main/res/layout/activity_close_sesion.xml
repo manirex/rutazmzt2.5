@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.petgo.petgo.close_sesion">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp">
+
+            <Button
+                android:id="@+id/profile_button_regresar"
+                android:layout_width="15dp"
+                android:layout_height="20dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
+                android:background="@drawable/boton_back" />
+
+            <TextView
+                android:id="@+id/menu_bar_textView2"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/boton_menu"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1"
+                android:text="PetGo"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+         <!--   <Button
+                android:id="@+id/boton_menu"
+                android:layout_width="20dp"
+                android:layout_height="15dp"
+                android:layout_alignBottom="@+id/profile_button_regresar"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="11dp"
+                android:layout_marginRight="11dp"
+                android:background="@drawable/boton_menu" />  -->
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="30dp"
+            android:text="You are about to log out PetGo."
+            android:textColor="#FAFFF8"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/close_sesion_button1"
+            android:layout_width="210dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:background="@drawable/boton_continue" />
+
+    </LinearLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>

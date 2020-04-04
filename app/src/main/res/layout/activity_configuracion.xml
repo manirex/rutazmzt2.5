@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fafff8"
+    tools:context="com.petgo.petgo.configuracion">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#32302f"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/configuracion_boton_regresar"
+            android:layout_width="15dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/boton_back" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_weight="1"
+            android:text="PetGo"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+
+        <FrameLayout
+            android:layout_width="32dp"
+            android:layout_height="match_parent">
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp">
+
+        <TextView
+            android:id="@+id/setting_texto1"
+            android:layout_width="295dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="70dp"
+            android:text="Settings"
+            android:textColor="#3F3F3F"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/setting_texto2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="40dp"
+            android:text="Profile"
+            android:textColor="#32302f"
+            android:textColorHighlight="#32302f"
+            android:textSize="18sp" />
+
+       <!-- <TextView
+            android:id="@+id/setting_texto3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="40dp"
+            android:text="Lost Items"
+            android:textColor="#32302f"
+            android:textSize="18sp" />
+            -->
+
+        <TextView
+            android:id="@+id/setting_texto4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="40dp"
+            android:text="Terms and conditions"
+            android:textColor="#32302f"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/setting_texto5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:text="Log out"
+            android:textColor="#32302f"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

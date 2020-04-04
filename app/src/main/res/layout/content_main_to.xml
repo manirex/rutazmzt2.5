@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fafff8"
+    tools:context="com.petgo.petgo.main_to">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="#32302f">
+
+            <Button
+                android:id="@+id/select_to_button_regresar"
+                android:layout_width="15dp"
+                android:layout_height="20dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
+                android:background="@drawable/boton_back" />
+
+            <TextView
+                android:id="@+id/menu_bar_textView2"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/boton_menu"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1"
+                android:text="PetGo"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+             <Button
+                  android:id="@+id/btn_menu_main_to"
+                  android:layout_width="20dp"
+                  android:layout_height="13dp"
+                  android:layout_alignBottom="@+id/profile_button_regresar"
+                  android:layout_alignParentEnd="true"
+                  android:layout_alignParentRight="true"
+                  android:layout_marginEnd="11dp"
+                  android:layout_marginRight="11dp"
+                  android:background="@drawable/boton_menu" />
+
+        </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/pantalla_from"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/pantalla_from_mapa"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:orientation="vertical">
+
+                <include
+                    layout="@layout/activity_mapa"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="#32302F">
+
+                <EditText
+                    android:id="@+id/main_from_d1"
+                    android:layout_width="300dp"
+                    android:layout_height="43dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/edit_tipod"
+                    android:ems="10"
+                    android:inputType="textMultiLine"
+                    android:maxLines="2"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="35dp"
+                    android:textSize="14sp" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"></FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_marginTop="3dp"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    app:srcCompat="@drawable/circulo_azul" />
+
+                <TextView
+                    android:id="@+id/textFrom1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="From: "/>
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="10dp"></FrameLayout>
+
+            <Button
+                android:id="@+id/pet_sumary_boton"
+                android:layout_width="210dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:background="@drawable/boton_set_dropof" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fafff8"
+    tools:context="com.petgo.petgo.lost_item">
+
+    <RelativeLayout
+        android:background="#32302f"
+        android:layout_width="match_parent"
+        android:layout_height="35dp">
+
+        <Button
+            android:id="@+id/lost_item_button_regresar"
+            android:layout_width="15dp"
+            android:layout_height="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/boton_back" />
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/lost_item_button_regresar"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            android:text="PetGo"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:id="@+id/textView9" />
+
+    <!--    <Button
+            android:id="@+id/boton_menu"
+            android:layout_width="20dp"
+            android:layout_height="15dp"
+            android:layout_alignBottom="@+id/textView9"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="22dp"
+            android:layout_marginRight="22dp"
+            android:background="@drawable/boton_menu" /> -->
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="343dp"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="14dp">
+
+        <TextView
+            android:layout_width="295dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="Lost items"
+            android:textColor="#3F3F3F"
+            android:textSize="25sp" />
+
+        <TextView
+            android:layout_width="293dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="Description of lost item"
+            android:textColor="#3F3F3F"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/lost_item_edit1"
+            android:layout_width="280dp"
+            android:layout_height="115dp"
+            android:layout_gravity="center"
+            android:background="@drawable/edit_tipoc"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:textSize="14sp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"></FrameLayout>
+
+        <Button
+            android:id="@+id/lostitem_button2"
+            android:layout_width="210dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/boton_descripcion" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

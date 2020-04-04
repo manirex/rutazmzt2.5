@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="200dp"
+    android:layout_height="match_parent"
+    android:background="#32302f"
+    android:gravity="top"
+    android:orientation="vertical"
+    android:paddingTop="5dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        app:srcCompat="@drawable/logo_menu" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="android.studio@android.com"
+        android:textAlignment="center"
+        android:textColor="#f7f3d5" />
+
+    <TextView
+        android:id="@+id/texCorreo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:text="PetGO"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#f7f3d5" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp">
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/menu_text1"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:text="Local Ride"
+        android:textColor="#f7f3d5" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/background_light" />
+
+   <!-- <TextView
+        android:id="@+id/menu_text2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:text="National Service"
+        android:textColor="#f7f3d5" />
+        -->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/background_light" />
+
+    <TextView
+        android:id="@+id/menu_text3"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:text="My Rides"
+        android:textColor="#f7f3d5" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/background_light" />
+
+    <TextView
+        android:id="@+id/menu_text4"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:text="Payment"
+        android:textColor="#f7f3d5" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/background_light" />
+
+    <TextView
+        android:id="@+id/menu_text5"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:text="Settings"
+        android:textColor="#f7f3d5" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/background_light">
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/menu_text6"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:background="#f7f3d5"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:text="Bencome a Driver!"
+                android:textColor="#3f3f3f"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </FrameLayout>
+
+</LinearLayout>
