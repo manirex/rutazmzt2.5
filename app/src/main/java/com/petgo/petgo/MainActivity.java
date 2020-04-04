@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Global.ListMascotas = new ArrayList<ArrayList>();
-                startActivity(new Intent(MainActivity.this, formulario_local.class));
+                startActivity(new Intent(MainActivity.this, Main_From.class));
                 MainActivity.this.finish();
             }
         });

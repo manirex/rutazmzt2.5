@@ -467,7 +467,7 @@ public class select_car extends AppCompatActivity implements NavigationView.OnNa
         if (mGoogleApiClient != null) {
             LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
         }
-        crearRuta("driving");
+        crearRuta("walking");
 
 
     }
